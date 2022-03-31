@@ -177,6 +177,7 @@ function generateStyles(
     }
   }
   if (all) {
+    console.log("Letter " + letter + " is at all");
     return {
       background: "var(--guess-gray)",
       filter: "contrast(0.5) brightness(0.5)",
@@ -198,20 +199,24 @@ function generateStyles(
       colors[i] = "var(--guess-green)";
     }
   }
-
-  const colNum = 4;
-  const rowNum = 4;
-
+  // Generate background image
   // Generate background image
   const backgroundImage = [];
-  console.log(colors);
-  for (let i = 0; i < rowNum; i++) {
+  for (let i = 0; i < 8; i++) {
     const row = [];
-    for (let j = 0; j < colNum; j++) {
-      const color = colors[i * 4 + j];
-      const cell = `${color} calc(100%*${j}/4), ${color} calc(100%*${j + 1}/4)`;
-
-      row.push(cell);
+    if (i < 4) {
+      for (let j = 0; j < 4; j++) {
+        const color = colors[i * 4 + j];
+        const cell = `${color} calc(100%*${j}/4), ${color} calc(100%*${j + 1}/4)`;
+        row.push(cell);
+      }
+    } else {
+      //This decides the colour of 1 row (of 4 "blocks")
+      for (let j = 0; j < 4; j++) {
+        const color = "var(--guess-gray)";
+        const cell = `${color} calc(100%*${j}/4), ${color} calc(100%*${j + 1}/4)`;
+        row.push(cell);
+      }
     }
     backgroundImage.push(`linear-gradient(90deg,${row.join(",")})`);
   }
