@@ -1,10 +1,29 @@
-export const NUM_BOARDS = 32;
+export const NUM_BOARDS = 16;
 
-export const NUM_GUESSES = 37;
+export const NUM_GUESSES = 30;
 
 export const START_DATE = new Date("2022-03-03T00:00:00");
 
 export const WORDS_TARGET = [
+  "MAXIN", 
+  "HAPPY", 
+  "ONEYR", 
+  "MYONE", 
+  "SUPER", 
+  "SMART", 
+  "ATTRA",
+  "CTIVE", 
+  "FUNNY", 
+  "SWEET", 
+  "ANGEL",  
+  "ILOVE", 
+  "YOUUU", 
+  "MYRAY", 
+  "OFSUN", 
+  "SHINE",
+
+
+
   "ABACK",
   "ABASE",
   "ABATE",
@@ -2323,6 +2342,24 @@ export const WORDS_TARGET = [
 ];
 
 export const WORDS_VALID = new Set([
+  "MAXIN", 
+  "HAPPY", 
+  "ONEYR", 
+  "MYONE", 
+  "SUPER", 
+  "SMART", 
+  "ATTRA",
+  "CTIVE", 
+  "FUNNY", 
+  "SWEET", 
+  "ANGEL",  
+  "ILOVE", 
+  "YOUUU", 
+  "MYRAY", 
+  "OFSUN", 
+  "SHINE",
+
+  
   "AAHED",
   "AALII",
   "AARGH",

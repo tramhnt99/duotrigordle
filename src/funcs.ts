@@ -95,7 +95,7 @@ export function getTodaysId(): number {
 
 // Given a duotrigordle id, return the corresponding 32 target wordles
 export function getTargetWords(id: number): string[] {
-  const targetWords: string[] = [];
+  const targetWords: string[] = ["MAXIN", "HAPPY", "ONEYR", "MYONE", "SUPER", "SMART", "PRETTY", "FUNNY", "SWEET", "GIRLF", "RIEND", "ILOVE", "YOUUU", "MYRAY", "OFSUN", "SHINE"];
   const rng = MersenneTwister(id);
   while (targetWords.length < NUM_BOARDS) {
     const idx = rng.u32() % WORDS_TARGET.length;
@@ -103,6 +103,7 @@ export function getTargetWords(id: number): string[] {
     if (!targetWords.includes(word)) {
       targetWords.push(word);
     }
+    console.log(targetWords);
   }
   return targetWords;
 }
@@ -201,6 +202,8 @@ export function serializeGame(state: GameState): GameSerialized {
 }
 export function deserializeGame(serialized: GameSerialized): GameState {
   const targets = getTargetWords(serialized.id);
+  console.log("Target words: ");
+  console.log(targets);
   const gameOver =
     serialized.guesses.length === NUM_GUESSES ||
     allWordsGuessed(serialized.guesses, targets);

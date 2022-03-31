@@ -199,13 +199,18 @@ function generateStyles(
     }
   }
 
+  const colNum = 4;
+  const rowNum = 4;
+
   // Generate background image
   const backgroundImage = [];
-  for (let i = 0; i < 8; i++) {
+  console.log(colors);
+  for (let i = 0; i < rowNum; i++) {
     const row = [];
-    for (let j = 0; j < 4; j++) {
+    for (let j = 0; j < colNum; j++) {
       const color = colors[i * 4 + j];
       const cell = `${color} calc(100%*${j}/4), ${color} calc(100%*${j + 1}/4)`;
+
       row.push(cell);
     }
     backgroundImage.push(`linear-gradient(90deg,${row.join(",")})`);
